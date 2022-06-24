@@ -38,6 +38,12 @@ MainClass::MainClass(QVector<QString> QArgv)
                 if(QArgv[0]=="add"){
                     QArgv.pop_front();
                     obj.AddOf(QArgv);
+                } else if(QArgv[0]=="edit"){
+                    QArgv.pop_front();
+                    obj.EditOf(QArgv);
+                } else if(QArgv[0]=="delete"){
+                    QArgv.pop_front();
+                    obj.DeleteOf(QArgv);
                 }
             }
         }
