@@ -17,6 +17,10 @@ public:
     void AddCad(QVector<QString> QArgv);
     void EditCad(QVector<QString> QArgv);
     void DeleteCad(QVector<QString> QArgv);
+
+    void AddOf(QVector<QString> QArgv);
+    void EditOf(QVector<QString> QArgv);
+    void DeleteOf(QVector<QString> QArgv);
 };
 
 #endif // DBIO_H

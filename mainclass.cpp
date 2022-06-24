@@ -32,6 +32,14 @@ MainClass::MainClass(QVector<QString> QArgv)
                     obj.DeleteCad(QArgv);
                 }
             }
+        } else if(QArgv[0]=="oficer"){
+            QArgv.pop_front();
+            if(QArgv.size()){
+                if(QArgv[0]=="add"){
+                    QArgv.pop_front();
+                    obj.AddOf(QArgv);
+                }
+            }
         }
     }
 
