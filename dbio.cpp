@@ -5,6 +5,7 @@ DBIO::DBIO()
     DataBase = QSqlDatabase::addDatabase("QSQLITE");
     DataBase.setDatabaseName("C:/Qt/Projects/Kursach/MainDB.db");
     if(!DataBase.open()){
+        qDebug()<<"Error";
         //Не найдена база!!!
     }
     QSqlQuery DBQuery;
