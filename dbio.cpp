@@ -34,23 +34,23 @@ void DBIO::EditDev(QVector<QString> QArgv)
     if(QArgv.size()!=0){
         QString lastId = QArgv[0];
         QArgv.pop_front();
-        while(QArgv.size())
-            if(QArgv.size()>1){
+        while(QArgv.size()){
+            //if(QArgv.size()>1){
                 if(QArgv[0]=="id"){
                     QArgv.pop_front();
                     if(DBQuery.exec(QString("UPDATE division SET id = %1 WHERE id = %2").arg(QArgv[0]).arg(lastId))){
-                        DBQuery.exec(QString("UPDATE cadet SET idDev = %1 WHERE idDiv = %2").arg(QArgv[0]).arg(lastId));
-                        DBQuery.exec(QString("UPDATE oficer SET idDev = %1 WHERE idDiv = %2").arg(QArgv[0]).arg(lastId));
+                        DBQuery.exec(QString("UPDATE cadet SET idDiv = %1 WHERE idDiv = %2").arg(QArgv[0]).arg(lastId));
+                        DBQuery.exec(QString("UPDATE oficer SET idDiv = %1 WHERE idDiv = %2").arg(QArgv[0]).arg(lastId));
                     }
                 } else if(QArgv[0]=="idOf"){
                     QArgv.pop_front();
                     DBQuery.exec(QString("UPDATE division SET idOf = %1 WHERE id = %2").arg(QArgv[0]).arg(lastId));
                     DBQuery.exec(QString("UPDATE oficer SET idDiv = NULL WHERE idDiv = %1").arg(lastId));
-                    DBQuery.exec(QString("UPDATE oficer SET idDiv = %1 WHERE idDiv = %2").arg(lastId).arg(QArgv[0]));
+                    DBQuery.exec(QString("UPDATE oficer SET idDiv = %1 WHERE id = %2").arg(lastId).arg(QArgv[0]));
                     DBQuery.exec(QString("UPDATE cadet SET idOf = %1 WHERE idDiv = %2").arg(QArgv[0]).arg(lastId));
                 }
                 QArgv.pop_front();
-            }
+        }
     }
 }
 

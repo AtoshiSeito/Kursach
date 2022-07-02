@@ -4,5 +4,6 @@
 #include <Qt>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QCoreApplication>
 
 #endif // SOURCE_H
